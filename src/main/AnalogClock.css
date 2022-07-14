@@ -1,0 +1,133 @@
+.Background{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #3D525B;
+    align-items: center;
+}
+.Clock{
+    width: 680px;
+    height: 680px;
+}
+.ExternalCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 680px;
+    height: 680px;
+    background: #6F848E;
+    border-radius: 680px;
+}
+.InternalCircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 590px;
+    height: 590px;
+    background: #E8E8E8;
+    border-radius: 100%;
+}
+.Numbers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 564px;
+    height: 564px;
+    /* background: red; */
+}
+.Line > p , .Numbers > p{
+    margin: 0px;
+    width: 72.9px;
+    height: 72.9px;
+
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60.3px;
+    line-height: 73px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+.Line{
+    display: flex;
+    /* background-color: green; */
+}
+.sec{
+    margin-bottom: 8.5px;
+    margin-top: 8.5px;
+}
+.sec > p:nth-child(1){
+    margin-right: 86.5px;
+}
+.sec > p:nth-child(2){
+    margin-left: 86.5px;
+}
+.tert{
+    margin-bottom: 16.5px;
+    margin-top: 16.5px;
+}
+.tert > p:nth-child(1){
+    margin-right: 176.5px;
+}
+.tert > p:nth-child(2){
+    margin-left: 176.5px;
+}
+.main{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.main > p:nth-child(1){
+    margin-right: 209px;
+}
+.main > p:nth-child(3){
+    margin-left: 209px;
+}
+.dial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clockPin{
+    border-radius: 20px;
+    position: absolute;
+}
+.clockPin.Sec{
+    width: 145.8px;
+    height: 0px;
+    /* border: 4px solid #3D525B;
+    background-color: #3D525B; */
+    border: 3px solid blue;
+    background-color: blue;
+    /* transform: rotate(-113.82deg) translate(72.9px, 0%); */
+    transform: translate(72.9px, 0%);
+}
+.clockPin.Min{
+    width: 178.8px;
+    /* border: 10px solid #000000;
+    background-color: #000000; */
+    border: 5px solid green;
+    background-color: green;
+    transform: translate(89.4px, 0%);
+}
+.clockPin.Hour{
+    width: 122.4px;
+    /* border: 10px solid #000000;
+    background-color: #000000; */
+    border: 7px solid red;
+    background-color: red;
+    /* transform: rotate(-90deg) translate(61.2px, 0%); */
+    transform: translate(61.2px, 0%);
+}
+.Numbers > p{
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
