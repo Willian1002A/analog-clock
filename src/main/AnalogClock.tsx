@@ -8,39 +8,59 @@ const initialState = {
 }
 export default class AnalogClock extends Component {
     state = {...initialState}
-    setNewClockPinHour(){
+    multFactorFunct(innerWidth:any){
+        let multFactor = 1;
+        if(innerWidth >= 1920){
+            multFactor = 1920 / 1920;
+        }else if(innerWidth >= 1360){
+            multFactor = 1360 / 1920;
+        }else if (innerWidth >= 1024){
+            multFactor = 1024 / 1920;
+        }else if (innerWidth >= 640){
+            multFactor = 640 / 1920;
+        }else{
+            multFactor = 360 / 1920;
+        }
+        return multFactor;
+    }
+    setNewClockPinHour(innerWidth:any){
         const els = document.querySelectorAll<HTMLElement>(".Hour");
         const hour = new Date().getHours();
         const min = new Date().getMinutes();
         const sec = new Date().getSeconds();
         const hourMinSec = hour + ((min + (sec/60))/60);
-        els[0].style.transform = `rotate(${(hourMinSec * 30)-90}deg) translate(61.2px, 0%)`;
+        const posDefaultNum = 61.2;
+        els[0].style.transform = `rotate(${(hourMinSec * 30)-90}deg) translate(${posDefaultNum * this.multFactorFunct(innerWidth)}px, 0%)`;
     }
-    setNewClockPinMin(){
+    setNewClockPinMin(innerWidth:any){
         const els = document.querySelectorAll<HTMLElement>(".Min");
         const min = new Date().getMinutes();
         const sec = new Date().getSeconds();
         const minSec = (min) + (sec/60);
-        els[0].style.transform = `rotate(${(minSec * 6)-90}deg) translate(89.4px, 0%)`; 
+        const posDefaultNum = 89.4;
+        els[0].style.transform = `rotate(${(minSec * 6)-90}deg) translate(${posDefaultNum * this.multFactorFunct(innerWidth)}px, 0%)`;
     }
-    setNewClockPinSec(){
+    setNewClockPinSec(innerWidth:any){
         const els = document.querySelectorAll<HTMLElement>(".Sec");
         const sec = new Date().getSeconds();
-        els[0].style.transform = `rotate(${(sec * 6)-90}deg) translate(72.9px, 0%)`; 
+        const posDefaultNum = 72.9;
+        els[0].style.transform = `rotate(${(sec * 6)-90}deg) translate(${posDefaultNum * this.multFactorFunct(innerWidth)}px, 0%)`;
     }
     componentDidMount() {
+        let aux = window.innerWidth;
         const setNewClockPinMin = () => {
-            this.setNewClockPinHour();
-            this.setNewClockPinMin();
+            this.setNewClockPinHour(window.innerWidth);
+            this.setNewClockPinMin(window.innerWidth);
         }
         const setNewClock = ()=> {
-            this.setNewClockPinSec()
-            if(new Date().getSeconds() === 0){
+            this.setNewClockPinSec(window.innerWidth)
+            if(new Date().getSeconds() === 0 || aux !== window.innerWidth){
                 setNewClockPinMin()
             }
+            aux = window.innerWidth;
         }
-        setNewClockPinMin()
-        setNewClock()
+        setNewClockPinMin();
+        setNewClock();
         setInterval(setNewClock, 1000);
     }
     render(){
