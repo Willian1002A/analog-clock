@@ -18,6 +18,8 @@ export default class AnalogClock extends Component {
             multFactor = 1024 / 1920;
         }else if (innerWidth >= 640){
             multFactor = 640 / 1920;
+        }else if (innerWidth >= 400){
+            multFactor = 400 / 1920;
         }else{
             multFactor = 360 / 1920;
         }
