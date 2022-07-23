@@ -144,7 +144,7 @@
     }
 }
 *{
-    --mult-factor: calc(var(--actual-resolution)/var(--base-resolution) * 1.5);
+    --mult-factor: calc(var(--actual-resolution)/var(--base-resolution));
 }
 @media (orientation: portrait) {
     *{

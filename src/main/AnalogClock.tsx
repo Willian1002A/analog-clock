@@ -26,7 +26,7 @@ export default class AnalogClock extends Component {
         if(innerWidth <= innerHeight){
             return multFactor * 2; 
         }
-        return multFactor * 1.5;
+        return multFactor;
     }
     setNewClockPinHour(innerWidth:any, innerHeight:any){
         const els = document.querySelectorAll<HTMLElement>(".Hour");
